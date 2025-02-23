@@ -1,0 +1,15 @@
+query SearchNotes($query: String!) {
+  search(query: $query, first: 15) {
+    edges {
+      node {
+        document {
+          ... on Note {
+            id
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+}

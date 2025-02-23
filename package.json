@@ -1,0 +1,43 @@
+{
+  "name": "mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server implementation",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "bin": {
+    "mcp-server-kibela": "dist/index.js"
+  },
+  "scripts": {
+    "prebuild": "pnpm codegen",
+    "build": "tsup src/index.ts --dts --format esm",
+    "postbuild": "shx chmod +x dist/*.js",
+    "check": "tsc --noEmit",
+    "build:watch": "pnpm build --watch",
+    "codegen": "tsx scripts/codegen.ts",
+    "codegen:watch": "tsx watch scripts/codegen.ts"
+  },
+  "dependencies": {
+    "@graphql-typed-document-node/core": "^3.2.0",
+    "@modelcontextprotocol/sdk": "^1.5.0",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.6.3",
+    "@types/node": "^22.13.5",
+    "dotenv": "^16.4.7",
+    "prettier": "^3.4.1",
+    "shx": "^0.3.4",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.3.3"
+  }
+}

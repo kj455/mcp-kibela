@@ -1,0 +1,14 @@
+query GetMyNotes($limit: Int!) {
+  currentUser {
+    latestNotes(first: $limit) {
+      totalCount
+      edges {
+        node {
+          id
+          title
+          url
+        }
+      }
+    }
+  }
+}
