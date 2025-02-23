@@ -3,6 +3,5 @@ query GetNote($id: ID!) {
     id
     title
     content
-    contentHtml
   }
 }

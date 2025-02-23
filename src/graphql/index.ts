@@ -2,13 +2,15 @@ import { DocumentNode } from 'graphql'
 import searchNotesQuery from './queries/searchNotes.gql'
 import getMyNotesQuery from './queries/getMyNotes.gql'
 import getNoteQuery from './queries/getNote.gql'
+import getNoteFromPathQuery from './queries/getNoteFromPath.gql'
 import { env } from '../env'
-import type { SearchNotesQuery, GetMyNotesQuery, GetNoteQuery } from './generated/graphql'
+import type { SearchNotesQuery, GetMyNotesQuery, GetNoteQuery, GetNoteFromPathQuery } from './generated/graphql'
 
 export const Queries = {
   searchNotes: searchNotesQuery as DocumentNode,
   getMyNotes: getMyNotesQuery as DocumentNode,
   getNote: getNoteQuery as DocumentNode,
+  getNoteFromPath: getNoteFromPathQuery as DocumentNode,
 }
 
 function getQueryString(doc: DocumentNode): string {
@@ -51,4 +53,4 @@ export async function gqlRequest<T>(query: DocumentNode, variables: Record<strin
   return typedJson.data
 }
 
-export type { SearchNotesQuery, GetMyNotesQuery, GetNoteQuery }
+export type { SearchNotesQuery, GetMyNotesQuery, GetNoteQuery, GetNoteFromPathQuery }

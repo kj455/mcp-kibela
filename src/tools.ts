@@ -1,5 +1,5 @@
 import { Tool } from '@modelcontextprotocol/sdk/types.js'
-import { Queries, gqlRequest, SearchNotesQuery, GetMyNotesQuery, GetNoteQuery } from './graphql'
+import { Queries, gqlRequest, SearchNotesQuery, GetMyNotesQuery, GetNoteQuery, GetNoteFromPathQuery } from './graphql'
 
 type ToolResponse = {
   content: {
@@ -145,10 +145,53 @@ const getNoteContentTool: ToolDefinition<GetNoteContentArgs> = {
   },
 }
 
+type GetNoteFromPathArgs = {
+  path: string
+}
+const getNoteFromPathTool: ToolDefinition<GetNoteFromPathArgs> = {
+  tool: {
+    name: 'kibela_get_note_from_path',
+    description: 'Get note content by note path',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        path: {
+          type: 'string',
+          description: 'Note path (e.g. /notes/123)',
+        },
+      },
+      required: ['path'],
+    },
+  },
+  handler: async (args) => {
+    if (!args.path) {
+      throw new Error('Note path is required')
+    }
+
+    const response = await gqlRequest<GetNoteFromPathQuery>(Queries.getNoteFromPath, {
+      path: args.path,
+    })
+
+    if (!response.noteFromPath) {
+      throw new Error('Note not found')
+    }
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify(response.noteFromPath, null, 2),
+        },
+      ],
+    }
+  },
+}
+
 const toolDefinitions = {
   kibela_search_notes: searchNotesTool,
   kibela_get_my_notes: getMyNotesTool,
   kibela_get_note_content: getNoteContentTool,
+  kibela_get_note_from_path: getNoteFromPathTool,
 } as const
 
 export type ToolName = keyof typeof toolDefinitions
