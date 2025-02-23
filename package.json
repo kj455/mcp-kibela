@@ -1,7 +1,7 @@
 {
-  "name": "mcp-server",
-  "version": "1.0.0",
-  "description": "MCP server implementation",
+  "name": "@kj455/mcp-kibela",
+  "version": "0.1.4",
+  "description": "MCP server implementation that integrates with Kibela API",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -11,7 +11,10 @@
     "README.md"
   ],
   "bin": {
-    "mcp-server-kibela": "dist/index.js"
+    "mcp-kibela": "./dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "prebuild": "pnpm codegen",
@@ -20,7 +23,8 @@
     "check": "tsc --noEmit",
     "build:watch": "pnpm build --watch",
     "codegen": "tsx scripts/codegen.ts",
-    "codegen:watch": "tsx watch scripts/codegen.ts"
+    "codegen:watch": "tsx watch scripts/codegen.ts",
+    "prepublishOnly": "pnpm codegen && pnpm build"
   },
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.2.0",
