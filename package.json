@@ -23,7 +23,8 @@
     "postbuild": "shx chmod +x dist/*.js",
     "check": "tsc --noEmit",
     "build:watch": "npm run build --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.2.0",
