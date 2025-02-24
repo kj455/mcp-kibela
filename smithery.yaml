@@ -1,0 +1,31 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - KIBELA_TEAM
+      - KIBELA_TOKEN
+    properties:
+      KIBELA_TEAM:
+        type: string
+        description: Your Kibela team name
+      KIBELA_TOKEN:
+        type: string
+        description: Your Kibela API token
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['dist/index.js'],
+      env: {
+        KIBELA_TEAM: config.KIBELA_TEAM,
+        KIBELA_TOKEN: config.KIBELA_TOKEN
+      }
+    })
+  exampleConfig:
+    KIBELA_TEAM: example-team
+    KIBELA_TOKEN: example-token
