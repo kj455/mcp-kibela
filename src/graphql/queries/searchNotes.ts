@@ -4,15 +4,15 @@ import { gqlRequest } from '../request'
 
 type SearchNotesResponse = {
   search: {
-    edges: Array<{
+    edges: {
       node: {
         document: {
           id: string
           title: string
           url: string
         }
-      }
-    }>
+      }[]
+    }
   }
 }
 

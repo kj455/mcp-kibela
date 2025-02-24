@@ -14,7 +14,7 @@ The mcp-kibela server provides the following features:
 * 📝 **My Notes**: Fetch your latest notes
 * 📖 **Note Content**: Get note content and comments by ID
 * 🔗 **Note by Path**: Get note content by path
-
+****
 ## Prerequisites 📋
 
 Before you begin, ensure you have:
@@ -114,8 +114,8 @@ After building from source, you need to modify Cursor Settings.
 
 Cursor Settings -> Features -> MCP Servers -> Add new MCP server
 
-- Name: kibela (or whatever you want)
-- Type: command
+- Name: `kibela` (or whatever you want)
+- Type: `command`
 - Command: `env KIBELA_TEAM=your_team_name KIBELA_TOKEN=your_token node /path/to/mcp-kibela/dist/index.js`
 
 ## Environment Variables

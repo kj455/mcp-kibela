@@ -13,7 +13,6 @@ const run = async () => {
     await server.close()
   }
 
-  // シグナルハンドリング
   const signals: NodeJS.Signals[] = ['SIGINT', 'SIGTERM']
   signals.forEach((signal) => {
     process.on(signal, () => shutdown().then(() => process.exit(0)))

@@ -6,13 +6,13 @@ type GetMyNotesResponse = {
   currentUser: {
     latestNotes: {
       totalCount: number
-      edges: Array<{
+      edges: {
         node: {
           id: string
           title: string
           url: string
         }
-      }>
+      }[]
     }
   }
 }
