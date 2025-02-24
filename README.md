@@ -135,6 +135,21 @@ The following environment variables are required:
 
 Any contributions are welcome!
 
+## Development
+
+1. Use `npm run build:watch` to build the project in watch mode.
+
+```bash
+npm run build:watch
+```
+
+2. Use `npx @modelcontextprotocol/inspector` to inspect the MCP server.
+
+```bash
+npx @modelcontextprotocol/inspector node /path/to/mcp-kibela/dist/index.js
+```
+
+
 ## License 📄
 
 MIT
