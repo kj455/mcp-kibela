@@ -1,6 +1,6 @@
 import { Server } from '@modelcontextprotocol/sdk/server/index.js'
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js'
-import { TOOLS, handleToolRequest } from './tools'
+import { TOOLS, handleToolRequest } from './tools/index'
 
 export const createServer = () => {
   const server = new Server(

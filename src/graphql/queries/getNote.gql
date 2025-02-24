@@ -1,7 +1,0 @@
-query GetNote($id: ID!) {
-  note(id: $id) {
-    id
-    title
-    content
-  }
-}

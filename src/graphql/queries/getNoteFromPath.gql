@@ -1,7 +1,0 @@
-query GetNoteFromPath($path: String!) {
-  noteFromPath(path: $path) {
-    id
-    title
-    content
-  }
-}
