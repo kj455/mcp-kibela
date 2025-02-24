@@ -1,5 +1,7 @@
 # mcp-kibela
 
+[![smithery badge](https://smithery.ai/badge/@kj455/mcp-kibela)](https://smithery.ai/server/@kj455/mcp-kibela)
+
 MCP server implementation that integrates with Kibela API, enabling LLMs to interact with Kibela content.
 
 ## Features ⚙️
@@ -25,8 +27,6 @@ Choose one of the following installation methods:
 | [Source](#building-from-source) | Manual | Node.js, pnpm |
 
 ### Using Smithery
-
-🚧 Not implemented yet 🚧
 
 Automatically install for Claude Desktop:
 
