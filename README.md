@@ -1,5 +1,7 @@
 # mcp-kibela 🗒️
 
+[![smithery badge](https://smithery.ai/badge/@kj455/mcp-kibela)](https://smithery.ai/server/@kj455/mcp-kibela)
+
 A Model Context Protocol (MCP) server implementation that enables AI assistants to search and reference Kibela content. This setup allows AI models like Claude to securely access information stored in Kibela.
 
 ## Server Features 🚀
@@ -26,15 +28,8 @@ Before you begin, ensure you have:
 Choose one of the following installation methods:
 
 ### Using Smithery
-🚧 Under Development 🚧
 ```bash
 npx -y @smithery/cli install @kj455/mcp-kibela --client claude
-```
-
-### Using mcp-get
-🚧 Under Development 🚧
-```bash
-npx @michaellatman/mcp-get@latest install @kj455/mcp-kibela
 ```
 
 ### Using npm Package
@@ -46,14 +41,15 @@ npm install -g @kj455/mcp-kibela
 ```bash
 git clone https://github.com/kj455/mcp-kibela.git
 cd mcp-kibela
-pnpm install
-pnpm codegen
-pnpm build
+npm install
+npm run build
 ```
 
 ## Configuration ⚙️
 
 ### Claude Desktop
+
+If you use Smithery, you don't need to add this.
 
 Add the following to your `claude_desktop_config.json`:
 
@@ -71,8 +67,8 @@ Add the following to your `claude_desktop_config.json`:
 }
 ```
 
-#### If you're using asdf for Node.js version management
-If you're using asdf for Node.js version management, you'll need this special configuration:
+#### If you use asdf
+You will need this special configuration:
 
 ```json
 {
@@ -94,7 +90,7 @@ If you're using asdf for Node.js version management, you'll need this special co
 ```
 
 #### If you built from source
-If you built from source, modify the command and args like this:
+You will need to modify the command and args like this:
 
 ```json
 {
@@ -108,6 +104,10 @@ If you built from source, modify the command and args like this:
 }
 ```
 
+### Cursor
+
+🚧 Under Development 🚧
+
 ## Environment Variables
 
 The following environment variables are required:
@@ -117,7 +117,7 @@ The following environment variables are required:
 
 ## Contributing
 
-For development guidelines, please refer to [CONTRIBUTING.md](./CONTRIBUTING.md).
+Any contributions are welcome!
 
 ## License
 
