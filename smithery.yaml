@@ -18,13 +18,12 @@ startCommand:
       kibelaToken:
         type: string
         description: Your Kibela API token
-
-commandFunction: |
-  (config) => ({
-    command: 'node',
-    args: ['dist/index.js'],
-    env: {
-      KIBELA_TEAM: config.kibelaTeam,
-      KIBELA_TOKEN: config.kibelaToken
-    }
-  })
+  commandFunction: |
+    (config) => ({
+      command: 'node',
+      args: ['dist/index.js'],
+      env: {
+        KIBELA_TEAM: config.kibelaTeam,
+        KIBELA_TOKEN: config.kibelaToken
+      }
+    })
