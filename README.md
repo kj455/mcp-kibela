@@ -10,36 +10,40 @@ A Model Context Protocol (MCP) server implementation that enables AI assistants 
 
 The mcp-kibela server provides the following features:
 
-* 🔍 **Note Search**: Search Kibela notes by keywords
-* 📝 **My Notes**: Fetch your latest notes
-* 📖 **Note Content**: Get note content and comments by ID
-* 🔗 **Note by Path**: Get note content by path
-****
+- 🔍 **Note Search**: Search Kibela notes by keywords
+- 📝 **My Notes**: Fetch your latest notes
+- 📖 **Note Content**: Get note content and comments by ID
+- 🔗 **Note by Path**: Get note content by path
+
+---
+
 ## Prerequisites 📋
 
 Before you begin, ensure you have:
 
-* Node.js (v18 or higher)
-* MCP Client (Claude Desktop, Cursor, etc.)
-* Kibela Access Token ([How to get a token](https://support.kibe.la/hc/ja/articles/360036089931-API%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E5%8F%96%E5%BE%97%E6%96%B9%E6%B3%95%E3%82%92%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84))
-* Git (if building from source)
-
+- Node.js (v18 or higher)
+- MCP Client (Claude Desktop, Cursor, etc.)
+- Kibela Access Token ([How to get a token](https://support.kibe.la/hc/ja/articles/360036089931-API%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E5%8F%96%E5%BE%97%E6%96%B9%E6%B3%95%E3%82%92%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84))
+- Git (if building from source)
 
 ## Installation 🛠️
 
 Choose one of the following installation methods:
 
 ### Using Smithery
+
 ```bash
 npx -y @smithery/cli install @kj455/mcp-kibela --client claude
 ```
 
 ### Using npm Package
+
 ```bash
 npm install -g @kj455/mcp-kibela
 ```
 
 ### Building from Source
+
 ```bash
 git clone https://github.com/kj455/mcp-kibela.git
 cd mcp-kibela
@@ -70,6 +74,7 @@ Add the following to your `claude_desktop_config.json`:
 ```
 
 #### If you use asdf
+
 You will need this special configuration:
 
 ```json
@@ -92,6 +97,7 @@ You will need this special configuration:
 ```
 
 #### If you built from source
+
 You will need to modify the command and args like this:
 
 ```json
@@ -99,7 +105,7 @@ You will need to modify the command and args like this:
   "mcpServers": {
     "kibela": {
       "command": "/bin/bash",
-      "args": ["-c", "node dist/index.js"],
+      "args": ["-c", "node dist/index.js"]
       // ... other env configurations remain the same
     }
   }
@@ -122,8 +128,8 @@ Cursor Settings -> Features -> MCP Servers -> Add new MCP server
 
 The following environment variables are required:
 
-* `KIBELA_TEAM`: Your Kibela team name (required)
-* `KIBELA_TOKEN`: Your Kibela API token (required)
+- `KIBELA_TEAM`: Your Kibela team name (required)
+- `KIBELA_TOKEN`: Your Kibela API token (required)
 
 ## Contributing
 
