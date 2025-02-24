@@ -19,10 +19,8 @@ export const createServer = () => {
     tools: TOOLS,
   }))
 
-  server.setRequestHandler(CallToolRequestSchema, async (request) => {
-    const { name, arguments: args = {} } = request.params
-    const result = await handleToolRequest(name, args)
-    return result
+  server.setRequestHandler(CallToolRequestSchema, async ({ params }) => {
+    return handleToolRequest(params.name, params.arguments ?? {})
   })
 
   return { server }

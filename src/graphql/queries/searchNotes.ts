@@ -11,8 +11,8 @@ type SearchNotesResponse = {
           title: string
           url: string
         }
-      }[]
-    }
+      }
+    }[]
   }
 }
 

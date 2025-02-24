@@ -5,7 +5,7 @@ const envSchema = z.object({
   KIBELA_TOKEN: z.string().min(1, 'KIBELA_TOKEN is required'),
 })
 
-export type Env = z.infer<typeof envSchema>
+type Env = z.infer<typeof envSchema>
 
 declare global {
   namespace NodeJS {
