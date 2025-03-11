@@ -1,6 +1,6 @@
 {
   "name": "@kj455/mcp-kibela",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "MCP server implementation that integrates with Kibela API",
   "type": "module",
   "license": "MIT",
