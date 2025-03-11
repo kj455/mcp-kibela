@@ -10,10 +10,12 @@ A Model Context Protocol (MCP) server implementation that enables AI assistants 
 
 The mcp-kibela server provides the following features:
 
-- 🔍 **Note Search**: Search Kibela notes by keywords
-- 📝 **My Notes**: Fetch your latest notes
-- 📖 **Note Content**: Get note content and comments by ID
-- 🔗 **Note by Path**: Get note content by path
+- **Note Search**: Search Kibela notes by keywords
+- **My Notes**: Fetch your latest notes
+- **Note Content**: Get note content and comments by ID
+- **Note by Path**: Get note content by path
+- **Create Note**: Create a new note
+- **Update Note Content**: Update note content by note id
 
 ---
 
