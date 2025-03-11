@@ -1,5 +1,6 @@
 import { getNote } from '../graphql'
 import { updateNoteContent } from '../graphql/queries/updateNoteContent'
+import { uuid } from '../utils'
 import { ToolDefinition } from './types'
 
 export type UpdateNoteContentArgs = {
@@ -41,7 +42,7 @@ export const updateNoteContentTool: ToolDefinition<UpdateNoteContentArgs> = {
 
     const response = await updateNoteContent({
       input: {
-        clientMutationId: 'updateNoteContent',
+        clientMutationId: uuid(),
         id,
         newContent: content,
         baseContent: noteRes.note.content,
