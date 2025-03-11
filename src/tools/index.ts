@@ -3,12 +3,14 @@ import { getMyNotesTool } from './getMyNotes'
 import { getNoteContentTool } from './getNoteContent'
 import { getNoteFromPathTool } from './getNoteFromPath'
 import { ToolResponse } from './types'
+import { updateNoteContentTool } from './updateNoteContent'
 
 const toolDefinitions = {
   kibela_search_notes: searchNotesTool,
   kibela_get_my_notes: getMyNotesTool,
   kibela_get_note_content: getNoteContentTool,
   kibela_get_note_from_path: getNoteFromPathTool,
+  kibela_update_note_content: updateNoteContentTool,
 } as const
 
 export type ToolName = keyof typeof toolDefinitions
