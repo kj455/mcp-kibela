@@ -1,5 +1,11 @@
 # @kj455/mcp-kibela
 
+## 0.3.1
+
+### Patch Changes
+
+- 707c0f0: fix: release gha
+
 ## 0.3.0
 
 ### Minor Changes
