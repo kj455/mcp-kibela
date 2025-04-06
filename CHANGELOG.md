@@ -1,5 +1,11 @@
 # @kj455/mcp-kibela
 
+## 0.3.0
+
+### Minor Changes
+
+- cbafb7b: Add Docker support
+
 ## 0.2.0
 
 ### Minor Changes
