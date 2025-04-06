@@ -44,7 +44,7 @@ Before you begin, ensure you have:
       "KIBELA_TEAM",
       "-e",
       "KIBELA_TOKEN",
-      "ghcr.io/kj455/mcp-kibela:main"
+      "ghcr.io/kj455/mcp-kibela:latest"
     ],
     "env": {
       "KIBELA_TEAM": "your-team-name from https://[team-name].kibe.la",
@@ -84,7 +84,7 @@ Before you begin, ensure you have:
           "KIBELA_TEAM",
           "-e",
           "KIBELA_TOKEN",
-          "ghcr.io/kj455/mcp-kibela:main"
+          "ghcr.io/kj455/mcp-kibela:latest"
         ],
         "env": {
           "KIBELA_TEAM": "${input:kibela_team}",
@@ -112,7 +112,7 @@ Before you begin, ensure you have:
         "KIBELA_TEAM",
         "-e",
         "KIBELA_TOKEN",
-        "ghcr.io/kj455/mcp-kibela:main"
+        "ghcr.io/kj455/mcp-kibela:latest"
       ],
       "env": {
         "KIBELA_TEAM": "your-team-name from https://[team-name].kibe.la",
