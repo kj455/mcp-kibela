@@ -30,44 +30,92 @@ Before you begin, ensure you have:
 
 ## Installation 🛠️
 
-Choose one of the following installation methods:
+### Usage with Cursor
 
-### Using Smithery
-
-```bash
-npx -y @smithery/cli install @kj455/mcp-kibela --client claude
+```json
+{
+  "kibela": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "KIBELA_TEAM",
+      "-e",
+      "KIBELA_TOKEN",
+      "ghcr.io/kj455/mcp-kibela:main"
+    ],
+    "env": {
+      "KIBELA_TEAM": "your-team-name from https://[team-name].kibe.la",
+      "KIBELA_TOKEN": "your-token"
+    }
+  }
+}
 ```
 
-### Using npm Package
+### Usage with VSCode
 
-```bash
-npm install -g @kj455/mcp-kibela
+```json
+{
+  "mcp": {
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "kibela_team",
+        "description": "Kibela team name",
+        "password": false
+      },
+      {
+        "type": "promptString",
+        "id": "kibela_token",
+        "description": "Kibela token",
+        "password": true
+      },
+    ],
+    "servers": {
+      "kibela": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "-e",
+          "KIBELA_TEAM",
+          "-e",
+          "KIBELA_TOKEN",
+          "ghcr.io/kj455/mcp-kibela:main"
+        ],
+        "env": {
+          "KIBELA_TEAM": "${input:kibela_team}",
+          "KIBELA_TOKEN": "${input:kibela_token}"
+        }
+      }
+    }
+  }
+}
 ```
 
-### Building from Source
 
-```bash
-git clone https://github.com/kj455/mcp-kibela.git
-cd mcp-kibela
-npm install
-npm run build
-```
-
-## Configuration ⚙️
-
-### Claude Desktop
-
-If you use Smithery, you don't need to add this.
-
-Add the following to your `claude_desktop_config.json`:
+### Usage with Claude Desktop
 
 ```json
 {
   "mcpServers": {
-    "kibela": {
-      "command": "mcp-kibela",
+    "mcp-kibela": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "KIBELA_TEAM",
+        "-e",
+        "KIBELA_TOKEN",
+        "ghcr.io/kj455/mcp-kibela:main"
+      ],
       "env": {
-        "KIBELA_TEAM": "your-team-name",
+        "KIBELA_TEAM": "your-team-name from https://[team-name].kibe.la",
         "KIBELA_TOKEN": "your-token"
       }
     }
@@ -75,62 +123,17 @@ Add the following to your `claude_desktop_config.json`:
 }
 ```
 
-#### If you use asdf
+### Using Smithery
 
-You will need this special configuration:
-
-```json
-{
-  "mcpServers": {
-    "kibela": {
-      "command": "/bin/bash",
-      "args": ["-c", "npx -y @kj455/mcp-kibela@latest"],
-      "env": {
-        "KIBELA_TEAM": "your-team-name",
-        "KIBELA_TOKEN": "your-token",
-        "PATH": "/path/to/.asdf/shims:/usr/bin:/bin",
-        "ASDF_DIR": "/opt/homebrew/opt/asdf/libexec",
-        "ASDF_DATA_DIR": "/path/to/.asdf",
-        "ASDF_NODEJS_VERSION": "your-nodejs-version"
-      }
-    }
-  }
-}
+```bash
+npx -y @smithery/cli install @kj455/mcp-kibela --client claude
 ```
-
-#### If you built from source
-
-You will need to modify the command and args like this:
-
-```json
-{
-  "mcpServers": {
-    "kibela": {
-      "command": "/bin/bash",
-      "args": ["-c", "node dist/index.js"]
-      // ... other env configurations remain the same
-    }
-  }
-}
-```
-
-### Cursor
-
-Currently, ONLY [build from source](https://github.com/kj455/mcp-kibela#building-from-source) is supported.
-
-After building from source, you need to modify Cursor Settings.
-
-Cursor Settings -> Features -> MCP Servers -> Add new MCP server
-
-- Name: `kibela` (or whatever you want)
-- Type: `command`
-- Command: `env KIBELA_TEAM=your_team_name KIBELA_TOKEN=your_token node /path/to/mcp-kibela/dist/index.js`
 
 ## Environment Variables
 
 The following environment variables are required:
 
-- `KIBELA_TEAM`: Your Kibela team name (required)
+- `KIBELA_TEAM`: Your Kibela team name (required). You can find it from the URL of your Kibela team page. e.g. https://[team-name].kibe.la
 - `KIBELA_TOKEN`: Your Kibela API token (required)
 
 ## Contributing
